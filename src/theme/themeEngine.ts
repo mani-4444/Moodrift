@@ -1,11 +1,14 @@
-import type { ThemeConfig } from '../types/mood'
+import type { MoodLabel, ThemeConfig } from '../types/mood'
 
 /**
  * Applies a ThemeConfig as CSS custom properties on :root.
  * CSS transitions on those vars (defined in index.css) handle the animation.
  */
-export function applyTheme(config: ThemeConfig): void {
+export function applyTheme(config: ThemeConfig, label?: MoodLabel): void {
   const root = document.documentElement
+
+  // Mood data attribute — lets CSS apply mood-specific layout rules
+  if (label) root.setAttribute('data-mood', label)
 
   // Colors — animate at theme's own transition duration
   root.style.setProperty('--color-bg', config.background)
