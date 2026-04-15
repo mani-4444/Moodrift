@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Custom Property Defaults (calm theme) ── */
+:root {
+  --color-bg: hsl(140, 15%, 12%);
+  --color-surface: hsl(140, 12%, 18%);
+  --color-text: hsl(140, 15%, 87%);
+  --color-text-muted: hsl(140, 10%, 50%);
+  --color-accent: hsl(270, 30%, 70%);
+  --color-accent-secondary: hsl(160, 30%, 65%);
+
+  --content-width: 700px;
+  --line-height: 1.75;
+  --letter-spacing: 0.01em;
+  --font-weight: 400;
+  --font-size: 1rem;
+
+  --orb-color: hsl(270, 30%, 70%);
+  --orb-glow: hsl(270, 30%, 70%);
+  --transition-duration: 2200ms;
+}
+
+/* ── Smooth CSS var transitions ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+  letter-spacing: var(--letter-spacing);
+
+  transition:
+    background-color var(--transition-duration) ease,
+    color var(--transition-duration) ease;
+}
+
+/* ── App Layout ── */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-bg);
+  transition: background-color var(--transition-duration) ease;
+}
+
+/* ── Journal Container ── */
+.journal-container {
+  width: 100%;
+  max-width: var(--content-width);
+  min-height: 100vh;
+  padding: 6rem 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  transition: max-width 1200ms ease, padding 1200ms ease;
+}
+
+/* ── Textarea ── */
+.journal-textarea {
+  width: 100%;
+  flex: 1;
+  min-height: 60vh;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: inherit;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+  letter-spacing: var(--letter-spacing);
+  color: var(--color-text);
+  caret-color: var(--color-accent);
+
+  transition:
+    color var(--transition-duration) ease,
+    font-size 800ms ease,
+    line-height 800ms ease;
+}
+
+.journal-textarea::placeholder {
+  color: var(--color-text-muted);
+  transition: color var(--transition-duration) ease;
+}
+
+.journal-textarea:focus {
+  outline: none;
+}
+
+/* ── Word count ── */
+.journal-wordcount {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color var(--transition-duration) ease;
+}
+
+/* ── Mood Badge ── */
+.mood-badge {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding: 0.3rem 0.9rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 9999px;
+  background: var(--color-surface);
+  transition:
+    color var(--transition-duration) ease,
+    border-color var(--transition-duration) ease,
+    background var(--transition-duration) ease;
+  pointer-events: none;
+  z-index: 40;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 2px;
+  opacity: 0.3;
+}
