@@ -136,6 +136,78 @@ body {
   z-index: 40;
 }
 
+/* ── Journal inner wrapper ── */
+.journal-inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* ── Calibration ── */
+.calibration-overlay {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 2rem;
+}
+
+.calibration-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0;
+  transition: color var(--transition-duration) ease;
+}
+
+.calibration-prompt {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 520px;
+  transition: color var(--transition-duration) ease;
+}
+
+.calibration-textarea {
+  min-height: 45vh;
+}
+
+.calibration-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.calibration-timer {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+  transition: color var(--transition-duration) ease;
+}
+
+.calibration-skip {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: 1px solid var(--color-text-muted);
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  transition:
+    color 200ms ease,
+    border-color 200ms ease;
+}
+
+.calibration-skip:hover {
+  color: var(--color-text);
+  border-color: var(--color-text);
+}
+
 /* ── Scrollbar ── */
 ::-webkit-scrollbar {
   width: 4px;
