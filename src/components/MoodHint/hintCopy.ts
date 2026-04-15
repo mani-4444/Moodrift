@@ -1,0 +1,58 @@
+import type { MoodLabel } from '../../types/mood'
+
+export const HINT_COPY: Record<MoodLabel, string[]> = {
+  anxious: [
+    'Take up some space.',
+    'Let it settle.',
+    'No rush here.',
+    'Slow is okay.',
+    'You have room.',
+    'One thing at a time.',
+    'Breathe into the page.',
+  ],
+  sad: [
+    'Something\'s shifting.',
+    'Room for all of it.',
+    'Keep going.',
+    'Let it move through.',
+    'This counts.',
+    'You\'re still here.',
+    'Even this is okay.',
+  ],
+  angry: [
+    'Slow is strong.',
+    'Ground, then move.',
+    'You have time.',
+    'Let the page hold it.',
+    'Release it here.',
+    'Nothing to prove.',
+    'The words are enough.',
+  ],
+  focused: [
+    'Stay in it.',
+    'Good thread.',
+    'Keep pulling.',
+    'You\'re in the flow.',
+    'Don\'t stop now.',
+    'This is working.',
+    'Keep the rhythm.',
+  ],
+  happy: [
+    'Nice.',
+    'There it is.',
+    'Carry that forward.',
+    'Hold onto this.',
+    'Yes.',
+    'More of this.',
+    'Let it land.',
+  ],
+  calm: [
+    'Nice and easy.',
+    'Good pace.',
+    'Open space.',
+    'Just this.',
+    'All the time you need.',
+    'Stay here a while.',
+    'This is enough.',
+  ],
+}

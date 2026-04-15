@@ -13,8 +13,8 @@ export function ThemeWrapper({ children }: Props) {
   const theme = MOOD_THEMES[currentMood.label]
 
   useEffect(() => {
-    applyTheme(theme)
-  }, [theme])
+    applyTheme(theme, currentMood.label)
+  }, [theme, currentMood.label])
 
   return (
     <MotionConfig

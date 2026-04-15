@@ -5,7 +5,7 @@ import { MOOD_THEMES } from '../../theme/moodThemes'
 import type { MoodLabel } from '../../types/mood'
 
 // Nudge target BPM per mood — the orb breathes at the *target*, not detected rate
-const NUDGE_BPM: Record<MoodLabel, number> = {
+export const NUDGE_BPM: Record<MoodLabel, number> = {
   anxious: 8,    // breathe slower than the user → calming
   sad: 12,
   angry: 10,     // slow and grounding
@@ -15,9 +15,10 @@ const NUDGE_BPM: Record<MoodLabel, number> = {
 }
 
 export function MoodOrb() {
-  const currentMood = useMoodStore((s) => s.currentMood)
-  const isFocusMode = useMoodStore((s) => s.isFocusMode)
-  const theme = MOOD_THEMES[currentMood.label]
+  const currentMood    = useMoodStore((s) => s.currentMood)
+  const isFocusMode    = useMoodStore((s) => s.isFocusMode)
+  const manualOverride = useMoodStore((s) => s.manualOverride)
+  const theme          = MOOD_THEMES[currentMood.label]
   const [showLabel, setShowLabel] = useState(false)
 
   const bpm = NUDGE_BPM[currentMood.label]
@@ -132,8 +133,13 @@ export function MoodOrb() {
           height: 20,
           background: `radial-gradient(circle at 35% 35%, ${theme.accentSecondary}, ${theme.orbColor})`,
         }}
-        title={`Mood: ${currentMood.label}`}
+        title={`Mood: ${currentMood.label}${manualOverride ? ' (locked)' : ''}`}
       />
+
+      {/* Lock indicator when manually overridden */}
+      {manualOverride && (
+        <div className="orb-lock" style={{ color: theme.orbColor }}>⏸</div>
+      )}
 
       {/* Mood label — shows on hover or mood change */}
       <AnimatePresence>
